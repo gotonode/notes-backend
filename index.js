@@ -1,8 +1,12 @@
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
+const morgan = require("morgan")
 
 app.use(bodyParser.json())
+
+morgan("tiny")
+app.use(morgan)
 
 const logger = (request, response, next) => {
 	console.log("Method:   ", request.method)
@@ -11,6 +15,8 @@ const logger = (request, response, next) => {
 	console.log("---")
 	next()
 }
+
+app.use(logger)
 
 let notes = [{
 		id: 1,
@@ -88,6 +94,14 @@ app.delete('/notes/:id', (req, res) => {
 
 	res.status(204).end()
 })
+
+const error = (request, response) => {
+	response.status(404).send({
+		error: "Unknown endpoint."
+	})
+}
+
+app.use(error)
 
 const PORT = process.env.PORT || 3000;
 

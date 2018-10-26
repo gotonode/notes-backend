@@ -1,0 +1,8 @@
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+    "co7ntent":"Test content.",
+    "important":true,
+    "date":"2018"
+}

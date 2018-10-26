@@ -11,7 +11,7 @@
   "author": "gotonode",
   "license": "",
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "1.18.4"
   },
   "dependencies": {
     "cors": "^2.8.4",

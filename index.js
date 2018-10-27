@@ -5,7 +5,17 @@ const morgan = require("morgan")
 
 app.use(bodyParser.json())
 
-app.use(morgan("tiny"))
+app.use(morgan(function (tokens, req, res) {
+	return [
+		tokens.method(req, res), // HTTP method
+		tokens.url(req, res), // Relative URL
+		JSON.stringify(req.body), // The JSON data
+		tokens.res(req, res, 'content-length'), // Length of content
+		tokens.status(req, res), // HTTP status code
+		'-',
+		tokens['response-time'](req, res), 'ms' // Response time in ms
+	].join(' ')
+}))
 
 // const logger = (request, response, next) => {
 // 	console.log("Method:   ", request.method)

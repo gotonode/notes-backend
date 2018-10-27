@@ -5,18 +5,17 @@ const morgan = require("morgan")
 
 app.use(bodyParser.json())
 
-morgan("tiny")
-app.use(morgan)
+app.use(morgan("tiny"))
 
-const logger = (request, response, next) => {
-	console.log("Method:   ", request.method)
-	console.log("Path:     ", request.path)
-	console.log("Body:     ", request.body)
-	console.log("---")
-	next()
-}
+// const logger = (request, response, next) => {
+// 	console.log("Method:   ", request.method)
+// 	console.log("Path:     ", request.path)
+// 	console.log("Body:     ", request.body)
+// 	console.log("---")
+// 	next()
+// }
 
-app.use(logger)
+// app.use(logger)
 
 let notes = [{
 		id: 1,

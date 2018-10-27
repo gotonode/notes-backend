@@ -11,11 +11,13 @@
   "author": "gotonode",
   "license": "",
   "devDependencies": {
+    "eslint": "5.8.0",
     "nodemon": "1.18.5"
   },
   "dependencies": {
     "cors": "2.8.4",
     "express": "4.16.4",
+    "mongoose": "5.3.7",
     "morgan": "1.9.1"
   }
 }

@@ -1,5 +1,6 @@
 # Project
 .vscode
+.env
 
 # Logs
 logs

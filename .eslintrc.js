@@ -34,6 +34,8 @@ module.exports = {
 				"before": true,
 				"after": true
 			}
-		]
+		],
+		"no-console": 0,
+		"dot-notation": "error"
 	}
 };

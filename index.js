@@ -8,6 +8,10 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(express.static("build"))
 
+if (process.env.NODE_ENV !== "production") {
+	require("dotenv").config()
+}
+
 const Note = require("./models/note")
 
 const formatNote = (note) => {
@@ -101,7 +105,9 @@ app.post("/api/notes", (request, response) => {
 	note
 		.save()
 		.then(savedNote => {
-			response.json(formatNote(savedNote))
+			return formatNote(savedNote)
+		}).then(savedAndFormattedNote => {
+			response.json(savedAndFormattedNote)
 		})
 })
 

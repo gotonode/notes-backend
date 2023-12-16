@@ -12,7 +12,7 @@
 	"author": "gotonode",
 	"license": "",
 	"devDependencies": {
-		"eslint": "7.24.0",
+		"eslint": "8.56.0",
 		"nodemon": "2.0.7"
 	},
 	"dependencies": {
